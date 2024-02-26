@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Lab №1 - Task 3</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Лабараторна робота №1</ion-card-title>
+      <ion-card-subtitle
+        >Виконала студентка Юлія Беженар, група КН-32</ion-card-subtitle
+      >
+    </ion-card-header>
+
+    <ion-card-content> Знайомство з Ionic. </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        Згенерувати матрицю розміром NxN. Знайти максимальне значення (позначити
+        зеленим) та мінімальне (позначити синім).
+      </p>
+      <ion-item>
+        <ion-input
+          label="N:"
+          labelPlacement="floating"
+          placeholder="Enter N"
+          type="number"
+          id="n"
+          #InputN
+        ></ion-input>
+      </ion-item>
+      <ion-button
+        expand="block"
+        fill="outline"
+        color="secondary"
+        (click)="buildArray(InputN.value)"
+        >Згенерувати матрицю</ion-button
+      >
+      <ion-item>
+        <ion-grid>
+          <ion-row *ngFor="let i of a">
+            <ion-col *ngFor="let j of i" [style.background-color]="getColor(j)"
+              >{{j}}</ion-col
+            >
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Lab №1 - Task 1</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title> All Labs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Лабараторна робота №1</ion-card-title>
+      <ion-card-subtitle
+        >Виконала студентка Юлія Беженар, група КН-32</ion-card-subtitle
+      >
+    </ion-card-header>
+
+    <ion-card-content> Знайомство з Ionic. </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Задано три числа. Знайти суму кубів тих з них, які кратні 7.</p>
+      <ion-item>
+        <ion-input
+          label="First number"
+          label-placement="floating"
+          placeholder="Enter first number"
+          type="number"
+          id="a"
+          #InputA
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Second number"
+          label-placement="floating"
+          placeholder="Enter second number"
+          type="number"
+          id="b"
+          #InputB
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Third number"
+          label-placement="floating"
+          placeholder="Enter third number"
+          type="number"
+          id="c"
+          #InputC
+        ></ion-input>
+      </ion-item>
+      <ion-button
+        expand="block"
+        fill="outline"
+        color="success"
+        (click)="sumOfCubes(InputA.value, InputB.value, InputC.value)"
+        >Розрахувати</ion-button
+      >
+    </ion-card-content>
+  </ion-card>
+  <ion-card color="secondary">
+    <ion-card-header>
+      <ion-card-title>Результат: </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content> {{d}} </ion-card-content>
+  </ion-card>
+</ion-content>

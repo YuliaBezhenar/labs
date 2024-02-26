@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Lab №1 - Task 2</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Лабараторна робота №1</ion-card-title>
+      <ion-card-subtitle
+        >Виконала студентка Юлія Беженар, група КН-32</ion-card-subtitle
+      >
+    </ion-card-header>
+
+    <ion-card-content> Знайомство з Ionic. </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        На заданому проміжку чисел [a,b] знайти суму всіх, які кратні 11 та при
+        діленні на 8 дають в остачі 5.
+      </p>
+      <div class="task-2-input">
+        <ion-input
+          label="A:"
+          labelPlacement="floating"
+          placeholder="Enter a"
+          type="number"
+          id="a"
+          #InputA
+        ></ion-input>
+        <ion-input
+          label="B:"
+          labelPlacement="floating"
+          placeholder="Enter b"
+          type="number"
+          id="b"
+          #InputB
+        ></ion-input>
+      </div>
+      <ion-button
+        expand="block"
+        fill="outline"
+        color="dark"
+        (click)="sum(InputA.value, InputB.value)"
+        >Розрахувати</ion-button
+      >
+    </ion-card-content>
+  </ion-card>
+  <ion-card color="medium">
+    <ion-card-header>
+      <ion-card-title>Результат: </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content> {{c}} </ion-card-content>
+  </ion-card>
+</ion-content>

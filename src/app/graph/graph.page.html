@@ -1,0 +1,99 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Lab №2</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title> All Labs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Лабараторна робота №2</ion-card-title>
+      <ion-card-subtitle
+        >Виконала студентка Юлія Беженар, група КН-32</ion-card-subtitle
+      >
+    </ion-card-header>
+
+    <ion-card-content>
+      Інтеграція у проект Ionic додаткових модулів
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Створити додаток для табулювання і виведення на екран значення функції,
+      також побудувати графік функції.
+      <ion-item>
+        <ion-input
+          label="Xn:"
+          labelPlacement="floating"
+          placeholder="Enter initial value"
+          type="number"
+          id="xn"
+          value="2.1"
+          #InputXn
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Xk:"
+          labelPlacement="floating"
+          placeholder="Enter final value"
+          type="number"
+          id="xk"
+          value="16.5"
+          #InputXk
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="A:"
+          labelPlacement="floating"
+          placeholder="Enter parameter a"
+          type="number"
+          id="a"
+          value="1"
+          #InputA
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="H:"
+          labelPlacement="floating"
+          placeholder="Enter step"
+          type="number"
+          id="h"
+          value="0.2"
+          #InputH
+        ></ion-input>
+      </ion-item>
+      <ion-button
+        expand="block"
+        fill="solid"
+        color="primary"
+        shape="round"
+        (click)="graph(InputXn.value, InputXk.value, InputA.value, InputH.value)"
+        >Розрахувати</ion-button
+      >
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Результат</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <canvas #lineCanvas></canvas>
+      </ion-item>
+      <ion-item *ngFor="let item of data"> {{item}} </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
