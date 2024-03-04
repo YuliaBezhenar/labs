@@ -1,0 +1,80 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Lab №3</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title> All Labs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Лабараторна робота №1</ion-card-title>
+      <ion-card-subtitle
+        >Виконала студентка Юлія Беженар, група КН-32</ion-card-subtitle
+      >
+    </ion-card-header>
+
+    <ion-card-content> Робота з JSON файлами. </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Необхідно додати у розроблений в попередній лабораторній роботі застосунок
+      сторінку для обробки JSON файлу отриманого з серверу. Сторінку викликати у
+      головному меню застосунку.
+      <br />У JSON файлі записано інформацію про книги: Назва, автор, кількість
+      сторінок та рік видання. <br />Запит: Ввести прізвище автора у окремій
+      формі та позначити кольором всі книги даного автора.
+
+      <ion-button expand="block" fill="outline" color="primary" (click)="load()"
+        >Завантажити дані</ion-button
+      >
+      <ion-input
+        label="Виділити книги автора"
+        label-placement="floating"
+        fill="outline"
+        placeholder="Введіть автора:"
+        #InputName
+      ></ion-input>
+
+      <ion-list [inset]="true">
+        <ion-item
+          button
+          *ngFor="let item of data_books; index as i"
+          detail
+          (click)="toggleDetails(i)"
+        >
+          <ion-icon
+            color="primary"
+            slot="start"
+            name="library-sharp"
+          ></ion-icon>
+          <ion-label *ngIf="!showDetails[i]" text-wrap>
+            <p [ngStyle]="{color: getColor(item.author, InputName.value)}">
+              {{item.title}} <span> Автор:</span> {{item.author}}
+            </p>
+          </ion-label>
+          <ion-note slot="end">Детальніше</ion-note>
+          <ion-text *ngIf="showDetails[i]">
+            <ion-text>
+              <h2 [ngStyle]="{color: getColor(item.author, InputName.value)}">
+                {{item.title}}
+              </h2>
+            </ion-text>
+            <p>Автор: {{item.author}}</p>
+            <p>Рік видання: {{item.publication_year}}</p>
+            <p>Кількість сторінок: {{item.pages}}</p>
+          </ion-text>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
