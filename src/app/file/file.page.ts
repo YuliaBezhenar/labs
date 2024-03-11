@@ -15,9 +15,6 @@ export class FilePage implements OnInit {
 
   loading: any;
 
-  max: number = 0;
-  min: number = 100;
-
   constructor(public loadingController: LoadingController) { }
   
   async load() {

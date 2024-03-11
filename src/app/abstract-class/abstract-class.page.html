@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Lab №4</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title> All Labs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Лабараторна робота №4</ion-card-title>
+      <ion-card-subtitle
+        >Виконала студентка Юлія Беженар, група КН-32</ion-card-subtitle
+      >
+    </ion-card-header>
+
+    <ion-card-content>Абстрактні класи</ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Скласти програму з абстрактним батьківським класом і двома об'єктами-
+      нащадками. Реалізувати циклічне виведення параметрів об'єктів,
+      використовуючи поліморфний контейнер - масив
+      об'єктів базового класу (кількість об'єктів >= 5).
+      <br />1. Батьківський клас: багаточлен (поле назва); нащадки: квадратний
+      та кубічний (поля - коефіцієнти багаточлена); метод: значення багаточлена
+      <br />2. Організувати знаходження найбільшого значення багаточлену. <br />
+
+      <ion-item>
+        <ion-input
+          label="Кількість багаточленів кожного виду"
+          labelPlacement="floating"
+          placeholder="Введіть число"
+          type="number"
+          value="5"
+          #InputN
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Значення X"
+          labelPlacement="floating"
+          placeholder="Введіть х"
+          type="number"
+          value="1"
+          #InputX
+        ></ion-input>
+      </ion-item>
+      <ion-button
+        expand="block"
+        fill="solid"
+        color="primary"
+        shape="round"
+        (click)="result(InputN.value, InputX.value)"
+        >Розрахувати</ion-button
+      >
+      <p *ngFor="let p of polynom" [ngStyle]="{color:getColor(p.znach, max)}">
+        {{p.show()}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
