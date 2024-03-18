@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Polynomial } from './class/Polynomial';
 import { quadratic } from './class/quadratic';
 import { cubic } from './class/cubic';
-import { elementAt } from 'rxjs';
 
 @Component({
   selector: 'app-abstract-class',

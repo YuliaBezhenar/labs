@@ -5,7 +5,7 @@ describe('AbstractClassPage', () => {
   let component: AbstractClassPage;
   let fixture: ComponentFixture<AbstractClassPage>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     fixture = TestBed.createComponent(AbstractClassPage);
     component = fixture.componentInstance;
     fixture.detectChanges();

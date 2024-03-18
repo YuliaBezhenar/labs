@@ -5,7 +5,7 @@ describe('GraphPage', () => {
   let component: GraphPage;
   let fixture: ComponentFixture<GraphPage>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     fixture = TestBed.createComponent(GraphPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
