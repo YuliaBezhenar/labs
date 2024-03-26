@@ -1,0 +1,35 @@
+<app-my-header name="Lab №6"></app-my-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Лабараторна робота №6</ion-card-title>
+      <ion-card-subtitle
+        >Виконала студентка Юлія Беженар, група КН-32</ion-card-subtitle
+      >
+    </ion-card-header>
+
+    <ion-card-content>Інтерфейси</ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Розробити ієрархію класів відповідно до варіанту завдання.
+      <br />Варіант: 1. Студент, викладач, персона, завідувач кафедрою.<br />
+    </ion-card-content>
+
+    <ion-button
+      expand="block"
+      fill="solid"
+      color="primary"
+      shape="round"
+      (click)="info()"
+      >Вивести інформацію</ion-button
+    >
+    <ion-item>{{show1}}</ion-item>
+    <ion-item>{{show2}}</ion-item>
+  </ion-card>
+</ion-content>
