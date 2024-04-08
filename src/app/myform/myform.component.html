@@ -1,0 +1,82 @@
+<form [formGroup]="newspaperForm" (ngSubmit)="onSubmit()">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Газета</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-input
+        label="Назва Газети:"
+        label-placement="floating"
+        fill="outline"
+        placeholder="Назва Газети:"
+        type="text"
+        formControlName="npName"
+      ></ion-input>
+      <ion-input
+        label="Номер:"
+        label-placement="floating"
+        placeholder="Номер:"
+        type="number"
+        formControlName="npNum"
+      ></ion-input>
+      <ion-input
+        label="Дата виходу:"
+        label-placement="floating"
+        placeholder="Дата виходу:"
+        type="text"
+        formControlName="npDate"
+      ></ion-input>
+      <ion-input
+        label="Кількість сторінок:"
+        label-placement="floating"
+        placeholder="Кількість сторінок:"
+        type="number"
+        formControlName="npPages"
+      ></ion-input>
+      <ion-card formArrayName="npList">
+        <ion-card-header>
+          <ion-card-title>Список статей</ion-card-title>
+          <ion-card-subtitle
+            >Тут можна додати статті, які є у випуску</ion-card-subtitle
+          >
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-button color="tertiary" shape="round" (click)="addArticle()">
+            <ion-icon slot="start" name="add"></ion-icon>
+            Додати статтю
+          </ion-button>
+
+          <div *ngFor="let article of getControls(); let i = index">
+            <br />
+            <ion-input
+              label="Назва статті:"
+              label-placement="floating"
+              placeholder="Назва статті:"
+              type="text"
+              fill="outline"
+              formControlName="{{ i }}"
+            ></ion-input
+            ><ion-button
+              color="danger"
+              size="small"
+              shape="round"
+              (click)="deleteArticle(i)"
+            >
+              <ion-icon slot="start" name="trash"></ion-icon>
+              Видалити
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+      <ion-button
+        expand="block"
+        type="submit"
+        fill="outline"
+        [disabled]="!newspaperForm.valid"
+        >Підтвердити</ion-button
+      >
+    </ion-card-content>
+  </ion-card>
+</form>

@@ -25,8 +25,8 @@ export class AbstractClassPage implements OnInit {
     let x = parseInt(xx);
 
     for (let i = 0; i < n; i++){
-      this.polynom.push(new quadratic("Квадратний", this.getRandomInt(10), this.getRandomInt(10), this.getRandomInt(10), x))
-      this.polynom.push(new cubic("Кубічний", this.getRandomInt(10), this.getRandomInt(10), this.getRandomInt(10), this.getRandomInt(10), x))
+      this.polynom.push(new quadratic("Quadratic", this.getRandomInt(10), this.getRandomInt(10), this.getRandomInt(10), x))
+      this.polynom.push(new cubic("Cubic", this.getRandomInt(10), this.getRandomInt(10), this.getRandomInt(10), this.getRandomInt(10), x))
     }
     this.max = 0;
 
