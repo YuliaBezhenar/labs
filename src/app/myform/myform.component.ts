@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Newspaper } from './Class/Newspaper';
 import { dateValidator } from './validatorDate/dateValidator';
@@ -14,6 +14,7 @@ export class MyformComponent  implements OnInit {
 
   newspaperForm!: FormGroup;
   newspaper!: Newspaper;
+  @Output() newspaperAdd: EventEmitter<Newspaper> = new EventEmitter<Newspaper>();
   //перервірка дати???
   constructor(private fb: FormBuilder, private alertController: AlertController) {
     this.newspaperForm = this.fb.group({
@@ -46,8 +47,7 @@ export class MyformComponent  implements OnInit {
     let valid = new ValidatorToCurrentDateService();
     if (valid.isDateBeforeToday(date)) {
       this.newspaper = new Newspaper(name, num, date, pages, articles);
-      console.log("Submit");
-      console.log(this.newspaper);
+      this.newspaperAdd.emit(this.newspaper);
       this.newspaperForm.reset();
     }
     else
