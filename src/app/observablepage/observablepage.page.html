@@ -30,4 +30,58 @@
       Довідник посад та список співробітників
     </ion-card-content>
   </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Довідник посад та список співробітників</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Посада:</ion-label>
+        <ion-label>{{pos.name}}</ion-label>
+        <ion-button (click)="next()"
+          >Наступна <ion-icon name="caret-forward-outline"></ion-icon
+        ></ion-button>
+      </ion-item>
+      <ion-item *ngFor="let emp of employeeList.searchEmpResult; let j = index">
+        <ion-label>{{emp}}</ion-label>
+      </ion-item>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Додати посаду й співробітників</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="stacked">Введіть нову посаду</ion-label>
+            <ion-input #InputPosition></ion-input>
+            <ion-button (click)="addPos(InputPosition.value)"
+              >Додати <ion-icon name="add-outline"></ion-icon
+            ></ion-button>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Додати співробітника</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-label position="stacked">Прізвише:</ion-label>
+          <ion-input #InputSurname></ion-input>
+          <ion-label position="stacked">Ім'я</ion-label>
+          <ion-input #InputName></ion-input>
+          <ion-label position="stacked">По батькові</ion-label>
+          <ion-input #InputFname></ion-input>
+          <ion-label position="stacked">Введіть вік</ion-label>
+          <ion-input #InputAge></ion-input>
+          <ion-button
+            (click)="addEmp(InputSurname.value, InputName.value, InputFname.value, InputAge.value)"
+            >Додати <ion-icon size="small" name="add-outline"></ion-icon
+          ></ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
