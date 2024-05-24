@@ -17,5 +17,4 @@ export class ConfigService {
   constructor() { }
 }
 
-var positionList = new PositionList();
-const DEFAULT_POS = positionList.position.get(0);
+const DEFAULT_POS = { "id": 1, "name": "Директор" };

@@ -1,0 +1,84 @@
+<app-my-header name="Lab №11"></app-my-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Лабараторна робота №11</ion-card-title>
+      <ion-card-subtitle
+        >Виконала студентка Юлія Беженар, група КН-32</ion-card-subtitle
+      >
+    </ion-card-header>
+
+    <ion-card-content>Робота з NOSQL БД FireBase</ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Необхідно змінити лабораторну роботу № 10 додавши наступні функціональні
+      можливості:
+      <br />1. Збереження даних у БД FireBase <br />2. Зчитування даних з БД у
+      застосунку <br />3. Відображення даних <br />4. Додавання даних<br /><br />Варіант:
+      1. Довідник посад та список співробітників
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Довідник посад та список співробітників</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Посада:</ion-label>
+        <ion-label>{{pos.name}}</ion-label>
+        <ion-button (click)="next()"
+          >Наступна <ion-icon name="caret-forward-outline"></ion-icon
+        ></ion-button>
+      </ion-item>
+      <ion-item *ngFor="let emp of employeeList.searchEmp; let j = index">
+        <ion-label>Прізвище: {{emp.surname}}</ion-label>
+        <ion-label>Ім'я: {{emp.name}}</ion-label>
+        <ion-label>По-батькові: {{emp.fname}}</ion-label>
+        <ion-label>Вік: {{emp.age}}</ion-label>
+      </ion-item>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Додати посаду й співробітників</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="stacked">Введіть нову посаду</ion-label>
+            <ion-input #InputPosition></ion-input>
+            <ion-button (click)="addPos(InputPosition.value)"
+              >Додати <ion-icon name="add-outline"></ion-icon
+            ></ion-button>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Додати співробітника</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-label position="stacked">Прізвише:</ion-label>
+          <ion-input #InputSurname></ion-input>
+          <ion-label position="stacked">Ім'я</ion-label>
+          <ion-input #InputName></ion-input>
+          <ion-label position="stacked">По батькові</ion-label>
+          <ion-input #InputFname></ion-input>
+          <ion-label position="stacked">Введіть вік</ion-label>
+          <ion-input #InputAge></ion-input>
+          <ion-button
+            (click)="addEmp(InputSurname.value, InputName.value, InputFname.value, InputAge.value)"
+            >Додати <ion-icon size="small" name="add-outline"></ion-icon
+          ></ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
