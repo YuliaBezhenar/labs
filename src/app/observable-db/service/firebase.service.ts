@@ -14,23 +14,24 @@ export class FirebaseService {
   constructor(private db: AngularFireDatabase) { }
 
   createEmployee(employee: Employee) {
-    return this.empListRef?.push({
+    return this.db.object('/Employee/' + (employee.emp_id-1)).set({
       pos_id: employee.pos_id,
       surname: employee.surname,
       name: employee.name,
       fname: employee.fname,
-      age: employee.age
-    })
+      age: employee.age,
+      emp_id: employee.emp_id
+    });
   }
 
   createPosition(pos: Position) {
-    return this.posListRef?.push({
+    return this.db.object('/Position/' + (pos.id-1)).set({
       id: pos.id,
       name: pos.name
-    })
+    });
   }
 
-  getRecord(id: string, bd: string) {
+  getRecord(id: number, bd: string) {
     this.bdRef = this.db.object('/' + bd + id);
     console.log("bdRef=" + this.bdRef.snapshotChanges());
     return this.bdRef;
@@ -56,7 +57,8 @@ export class FirebaseService {
       surname: employee.surname,
       name: employee.name,
       fname: employee.fname,
-      age: employee.age
+      age: employee.age,
+      emp_id: employee.emp_id
     })
   }
   updatePos(id: number, pos: Position, bd: string) {
@@ -67,7 +69,8 @@ export class FirebaseService {
     })
   }
 
-  deleteRecord(id: string, bd: string) {
+
+  deleteRecord(id: number, bd: string) {
     this.bdRef = this.db.object('/' + bd + '/' + id);
     this.bdRef.remove();
   }

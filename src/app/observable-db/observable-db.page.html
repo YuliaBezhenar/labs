@@ -37,12 +37,65 @@
           >Наступна <ion-icon name="caret-forward-outline"></ion-icon
         ></ion-button>
       </ion-item>
-      <ion-item *ngFor="let emp of employeeList.searchEmp; let j = index">
-        <ion-label>Прізвище: {{emp.surname}}</ion-label>
-        <ion-label>Ім'я: {{emp.name}}</ion-label>
-        <ion-label>По-батькові: {{emp.fname}}</ion-label>
-        <ion-label>Вік: {{emp.age}}</ion-label>
-      </ion-item>
+      <ion-card *ngFor="let emp of employeeList.searchEmp; let j = index">
+        <ion-card-content>
+          <ion-item>
+            <ion-label>Прізвище: {{emp.surname}}</ion-label>
+            <ion-label>Ім'я: {{emp.name}}</ion-label>
+            <ion-label>По-батькові: {{emp.fname}}</ion-label>
+            <ion-label>Вік: {{emp.age}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-button (click)="deleteEmployee(emp)">
+              <ion-icon name="close-outline"></ion-icon>
+              Видалити
+            </ion-button>
+            <ion-button (click)="editEmployeeButtonClicked()">
+              <ion-icon name="create-outline"></ion-icon>
+              Редагувати
+            </ion-button>
+          </ion-item>
+          <ion-item *ngIf="editEmployeeMode">
+            <ion-input #InputNewSurname placeholder="Нове Прізвише"></ion-input>
+            <ion-input #InputNewName placeholder="Нове Ім'я"></ion-input>
+            <ion-input
+              #InputNewFname
+              placeholder="Нове По-батькові"
+            ></ion-input>
+            <ion-input
+              #InputNewAge
+              type="number"
+              placeholder="Новий Вік"
+            ></ion-input>
+            <br />
+            <ion-button
+              (click)="confirmEditEmployee(InputNewSurname.value, InputNewName.value, InputNewFname.value, InputNewAge.value, emp)"
+              >Підтвердити</ion-button
+            >
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-content>
+          <ion-button (click)="deletePosition()">
+            <ion-icon name="close-outline"></ion-icon>
+            Видалити посаду
+          </ion-button>
+          <br />
+          <ion-button (click)="editPositionButtonClicked()">
+            <ion-icon name="create-outline"></ion-icon>
+            Редагувати посаду
+          </ion-button>
+          <ion-item *ngIf="editPositionMode">
+            <ion-input #InputNewPos placeholder="Нова назва посади"></ion-input>
+            <ion-button (click)="confirmEditPosition(InputNewPos.value)"
+              >Підтвердити</ion-button
+            >
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+
       <ion-card>
         <ion-card-header>
           <ion-card-title>Додати посаду й співробітників</ion-card-title>
